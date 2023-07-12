@@ -15,5 +15,8 @@ web-build/
 
 # Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
+<<<<<<< HEAD
 
 .env
+=======
+>>>>>>> ac0a08c (expo setup)
