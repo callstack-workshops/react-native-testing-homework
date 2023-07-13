@@ -45,7 +45,9 @@ const LotteryForm = ({ onSubmit }: Props) => {
   const nameError = formik.errors.name && formik.touched.name;
   const prizeError = formik.errors.prize && formik.touched.prize;
 
-  const backgroundColor = !formik.isValid ? '#CCCCCC' : '#1976d2';
+  const backgroundColor = !formik.isValid
+    ? colors.grey
+    : colors.buttonSecondary;
 
   return (
     <View style={styles.container}>

@@ -17,7 +17,6 @@ export function useNewLottery() {
     try {
       const lottery = await LotteryService.createNewLottery(lotteryData);
       setLoading(false);
-      console.log('lottery', lottery);
       setLottery(lottery);
     } catch (e: any) {
       setLoading(false);
