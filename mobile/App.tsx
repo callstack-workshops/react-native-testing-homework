@@ -1,28 +1,33 @@
-<<<<<<< HEAD
 import React from 'react';
-=======
->>>>>>> ac0a08c (expo setup)
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  createNativeStackNavigator,
+  NativeStackNavigationOptions,
+} from '@react-navigation/native-stack';
+import { ToastProvider } from 'react-native-toast-notifications';
+import Home from './screens/Home';
+import AddLottery from './screens/AddLottery';
+import { RootStackParamList } from './types';
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
+
+const options: NativeStackNavigationOptions = {
+  title: '',
+};
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ToastProvider>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} options={options} />
+          <Stack.Screen
+            name="AddLottery"
+            component={AddLottery}
+            options={options}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ToastProvider>
   );
 }
-
-const styles = StyleSheet.create({
-<<<<<<< HEAD
-  // eslint-disable-next-line react-native/no-color-literals
-=======
->>>>>>> ac0a08c (expo setup)
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
