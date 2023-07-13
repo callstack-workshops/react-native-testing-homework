@@ -19,13 +19,15 @@ const lotterySchema = Yup.object({
 
 type Props = {
   onSubmit: () => void;
+  onNavigateBack: () => void;
 };
 
-const LotteryForm = ({ onSubmit }: Props) => {
+const LotteryForm = ({ onSubmit, onNavigateBack }: Props) => {
   const { error, loading, createNewLottery } = useNewLottery();
 
-  const handlePress = () => {
-    formik.handleSubmit();
+  const handleClose = () => {
+    formik.resetForm();
+    onNavigateBack();
   };
 
   const formik = useFormik({
@@ -39,6 +41,7 @@ const LotteryForm = ({ onSubmit }: Props) => {
     onSubmit: async (values) => {
       await createNewLottery({ name: values.name, prize: values.prize });
       onSubmit();
+      handleClose();
     },
   });
 
@@ -73,7 +76,7 @@ const LotteryForm = ({ onSubmit }: Props) => {
       <Pressable
         accessibilityRole="button"
         style={[styles.button, { backgroundColor }]}
-        onPress={handlePress}
+        onPress={() => formik.handleSubmit()}
         disabled={!formik.isValid}
       >
         {loading ? (

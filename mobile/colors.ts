@@ -5,4 +5,5 @@ export const colors = {
   buttonSecondary: '#1976d2',
   grey: '#CCCCCC',
   danger: '#FF0000',
+  borderColor: '#D3D3D3',
 };

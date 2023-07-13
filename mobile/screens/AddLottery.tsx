@@ -11,13 +11,16 @@ const AddLottery = () => {
   const toast = useToast();
 
   const onSubmit = () => {
-    navigation.goBack();
     toast.show('New lottery added successfully!');
+  };
+
+  const onNavigateBack = () => {
+    navigation.goBack();
   };
 
   return (
     <View style={styles.container}>
-      <Form onSubmit={onSubmit} />
+      <Form onSubmit={onSubmit} onNavigateBack={onNavigateBack} />
     </View>
   );
 };
