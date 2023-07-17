@@ -7,6 +7,7 @@ import {
 import { ToastProvider } from 'react-native-toast-notifications';
 import Home from './screens/Home';
 import AddLottery from './screens/AddLottery';
+import RegisterModal from './screens/RegisterModal';
 import { RootStackParamList } from './types';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -20,12 +21,17 @@ export default function App() {
     <ToastProvider>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} options={options} />
-          <Stack.Screen
-            name="AddLottery"
-            component={AddLottery}
-            options={options}
-          />
+          <Stack.Group>
+            <Stack.Screen name="Home" component={Home} options={options} />
+            <Stack.Screen
+              name="AddLottery"
+              component={AddLottery}
+              options={options}
+            />
+          </Stack.Group>
+          <Stack.Group screenOptions={{ presentation: 'modal' }}>
+            <Stack.Screen name="Register" component={RegisterModal} />
+          </Stack.Group>
         </Stack.Navigator>
       </NavigationContainer>
     </ToastProvider>
