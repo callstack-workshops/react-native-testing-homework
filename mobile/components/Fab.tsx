@@ -14,7 +14,7 @@ const FAB = ({ onPress }: Props) => {
       style={styles.container}
       onPress={onPress}
     >
-      <Ionicons name="md-add" size={30} color="#FFF" />
+      <Ionicons name="add" size={30} color="#FFF" />
     </TouchableOpacity>
   );
 };
