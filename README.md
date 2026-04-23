@@ -233,24 +233,3 @@ Registered lotteries feature:
 
   
 > :bulb: You are now here → [part-4](../../tree/part-4)
-
-
-## Part 5: Add animation
-
-<details>
-  <summary>In this part we will implement header animation as following:</summary>
-
-<img width="511" alt="animation" src="./assets/image9.png" />
-
-
-</details>
-
-Adding animations feature:
-
-- Implement a collapsible header animation that smoothly transitions the header's height as the user scrolls down the list
-- Add an animation to change the opacity of the header as the user scrolls down the list.
-- Apply an animation to scale down the header elements as the user scrolls down.
-
-
-> :bulb: You are now here → [part-5](../../tree/part-5)
-
