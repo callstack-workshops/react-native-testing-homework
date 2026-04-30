@@ -27,4 +27,12 @@ describe('Search', () => {
     const input = getByLabelText('Text input field');
     expect(input.props.value).toBe('sample text');
   });
+
+  it('matches the snapshot', () => {
+    const { toJSON } = render(
+      <Search value="sample text" onSearch={jest.fn()} />,
+    );
+
+    expect(toJSON()).toMatchSnapshot();
+  });
 });
