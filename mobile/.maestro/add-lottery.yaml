@@ -1,0 +1,33 @@
+appId: host.exp.Exponent
+name: Add lottery
+env:
+  EXPO_URL: exp://127.0.0.1:8081/--/
+  LOTTERY_NAME: Maestro Lottery
+  LOTTERY_PRIZE: 1000 coins
+---
+- openLink: ${EXPO_URL}
+- extendedWaitUntil:
+    visible: Lotteries
+    timeout: 30000
+- tapOn:
+    id: fab
+- extendedWaitUntil:
+    visible: Add new lottery
+    timeout: 10000
+- tapOn:
+    id: add-lottery-name-input
+- inputText: ${LOTTERY_NAME}
+- pressKey: enter
+- tapOn:
+    id: add-lottery-prize-input
+- inputText: ${LOTTERY_PRIZE}
+- pressKey: enter
+- tapOn:
+    id: add-lottery-submit-button
+- extendedWaitUntil:
+    visible: Lotteries
+    timeout: 10000
+- assertVisible:
+    id: lottery-item-${LOTTERY_NAME}
+- assertVisible:
+    id: lottery-prize-${LOTTERY_NAME}

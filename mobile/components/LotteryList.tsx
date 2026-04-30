@@ -64,6 +64,7 @@ const LotteryList = ({
     return (
       <Pressable
         accessibilityRole="button"
+        testID={`lottery-item-${item.name}`}
         style={[
           styles.container,
           {
@@ -83,7 +84,9 @@ const LotteryList = ({
           )}
         </View>
         <Text style={styles.name}>{item.name}</Text>
-        <Text style={styles.prize}>{item.prize}</Text>
+        <Text testID={`lottery-prize-${item.name}`} style={styles.prize}>
+          {item.prize}
+        </Text>
         <Text style={styles.id}>{item.id}</Text>
       </Pressable>
     );
