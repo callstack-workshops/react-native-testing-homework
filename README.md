@@ -93,22 +93,15 @@ Review the test results and make sure the interactions between different parts o
 
 > 💡 - Remember about reverting your changes back!
 
-## Part 4: Implement two e2e flows with the usage of Maestro
+## Part 4: Implement a single e2e flow with the usage of Maestro
 
 <details>
-  <summary><b>Step 1. Implement add lottery flow</b></summary><br>
+  <summary><b>Implement add lottery flow</b></summary><br>
 
 This task target to verify whether the functionality of adding lotteries work as expected, so in that flow, we have to enter the adding lottery form, input necessary information and check whether the item was successfully added as expected.
 
 > Hint: In order to press a button without text information add `testID` property and access them using `testID`
 </details>
 
-<details>
-  <summary><b>Step 2. Implement flow that verifies if settings work</b></summary><br>
 
-In that specific flow, we expect to have a properly working settings tab and hide the add lottery button functionality. Within the test, we need to enter the settings screen, toggle the switch responsible for storing information about the availability of adding lottery functionality, and after that expect to not see the FAB component on the Lotteries Screen.
-
-> Hint: In order to press a button without text information add `testID` property and access them using `testID`
-</details>
-
-> 💡 - Try to create one of the tests interactively with the usage of Maestro Studio
+> 💡 - You can create the test interactively with the usage of Maestro Studio
