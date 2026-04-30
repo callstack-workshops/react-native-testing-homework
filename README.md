@@ -1,235 +1,114 @@
-# Essential React Native Homework
+# Testing Homework
 
-As your CTO and Tech Leader want to continue to expand their digital presence, it becomes imperative to reach a wider audience through multiple platforms. Adding a mobile app to complement your existing web app is a strategic step towards improving user experience and increasing engagement.
-Now that you know React, let's embark on an exciting journey into the world of React Native.
+Now that we have enriched the experience of the users of the Lotteries app by implementing new features, our Tech Lead suggested that it would be a great time to introduce tests for the app. This will help us to feel more comfortable with the product we’re building since we will be sure that already existing features will work as expected, which influence directly scaling process.
 
-React Native enables developers to write code in JavaScript or TypeScript and deploy it on both Android and iOS platforms, maximizing code reusability and reducing development time.
+Tests are a crucial point from the business perspective since the Board believes that writing them now will impact customer satisfaction in a long-term way.
 
-### Homework management :house:
+### Homework management 🏠
 
-The final result of all homework is the React Native Application full of features implemented iteratively in the end phase of each module in the course. In order to keep consistency and track all of your changes we highly recommend you to create your own GitHub repository where your work as a participant will be stored. Your GitHub repository should be shared with all trainers, which will enable us to verify your work and communicate.
+The final result of all homework is the React Native Application full of features implemented iteratively in the end phase of each module in the course.
 
-Each module in the course will end up with homework consisting of a few tasks to fulfil. We would like to suggest a comfortable system for you to submit each task of the homework as a separate PR to the main branch in your repository. This will create a space for us to communicate with you, by doing code reviews - thanks to that we will be able to check your homework, discuss some uncertainties, or respond to questions you will leave in the PR. In case you have any trouble with homework you can always book a 1 to 1 session with the trainer, and also don't hesitate to ask your questions in the dedicated communication channel. Keep in mind that you don't have to worry about being blocked for the next homework, every homework will have a starting point, so you always will be able to override the content of your repository with the prepared starting point.
+Each module in the course will end up with homework consisting of a few tasks to fulfill. We would like to suggest a comfortable system for you to submit each task of the homework as a separate PR to the main branch in your repository. This will create a space for us to communicate with you, by doing code reviews - thanks to that we will be able to check your homework, discuss some uncertainties, or respond to questions you will leave in the PR. In case you have any trouble with homework you can always book a 1 to 1 session with the trainer, and also don't hesitate to ask your questions in the dedicated communication channel. Keep in mind that you don't have to worry about being blocked for the next homework, every homework will have a starting point, so you always will be able to override the content of your repository with the prepared starting point.
 
 ### The goal of this module’s homework
 
-The goal of this homework is to build the mobile part of the Lotteries app. We will focus on specific features of React Native, such as navigation, core components, styling, lists, asyncStorage and animations.
+The goal of this homework is to extend the existing mobile app with tests.
 
-### Starting point
-
-You should be able to continue working on the same homework project but if you don’t have it available or you want to start fresh you can just use this repository as a starting point.
-
-### Checkpoints :bulb:
-
-The homework repository contains periodic checkpoints for your convenience. You will see callouts denoting the current checkpoint throughout this instruction. They will look something like this:
-
-
-> :bulb: You are now here → `checkpoint-xyz`
-
-Feel free to check out the corresponding branch of any given checkpoint if you’re struggling or simply want to compare your solution with ours.
-
-With that out of the way, let’s start!
-
-## Part 1: Project setup
-
+## Part 1: Add unit tests
 
 <details>
-  <summary><b>Step 1: Create new folder</b></summary><br>
+  <summary><b>Step 1. Identify Areas to Add Tests</b></summary><br>
 
-Since we previously decided that our project will not be monorepo, let's just create a new folder called "mobile" and install our mobile part of the project there:
+Before you start writing tests, identify the key functionalities of your React Native app that need to be tested. This could include components, hooks, utility functions, and more.
+</details>
 
-  ```bash
-    mkdir mobile
+<details>
+  <summary><b>Step 2. Write Test Suites</b></summary><br>
+
+- Create a `__tests__` folder in the same directory as your source code.
+- For each module or component you want to test, create a corresponding test file using the format `<module-name>.test.js` or `<component-name>.test.js.`
+- Write your test suites and test cases using Jest's testing utilities and React Native Testing Library.
+</details>
+
+<details>
+  <summary><b>Step 3. Run tests</b></summary><br>
+
+Run your tests using the following command:
+
+  ```
+  npm run test
   ```
 </details>
 
 <details>
-  <summary><b>Step 2: Install new project with Expo</b></summary><br>
+  <summary><b>Step 4. Monitor Code Coverage</b></summary><br>
 
-1. Run the following command in the root of the repository to create new expo project and TypeScript already setup. Choose `mobile` as the name of the application
+Jest provides code coverage reports that help you identify which parts of your codebase are covered by tests. You can enable code coverage by adding the --coverage flag to your test command:
 
-  ```bash
-    npx create-expo-app -t expo-template-blank-typescript
+  ```
+  npm run test -- --coverage
   ```
 
-2. Navigate to the directory and run one of the following npm commands
+This will generate coverage reports in the coverage directory of your project. Open the HTML report in a browser to see detailed coverage information.
+</details>
 
-```bash
- cd mobile
- npm run android
- npm run ios
-``` 
-3. Add the following script to the `package.json`:
+## Part 2: Add integration tests
 
-```bash
-{
-  "scripts": {
-    "tsc": "tsc"
-  }
-}
-```
+<details>
+  <summary><b>Step 1. Identify Integration Points</b></summary><br>
 
-4. Then, to type-check the project, run the following command:
- ```bash
-   npnm run tsc
-```
-
+Determine the areas of your app where different components or units interact. These could include interactions between components, data flows, state management, API calls, navigation, etc.
 </details>
 
 <details>
-  <summary><b>Step 3: Configure `eslint` and `prettier`</b></summary><br>
+  <summary><b>Step 2. Write Integration Tests</b></summary><br>
 
-1.Install necessary dependencies
-  ```bash
-    npm install --save-dev eslint @callstack/eslint-config
+- For each integration point, create an integration test file. Name the file based on the interaction you're testing
+- Write test cases that simulate the interactions and verify that the expected outcomes are achieved.
+</details>
+
+<details>
+  <summary><b>Step 3. Run integration tests</b></summary><br>
+
+Run your tests using the following command:
+
   ```
-
-2.Create configuration files for ESLint and Prettier:
-  ```js
-  // .eslintrc
-  {
-    "extends": "@callstack/eslint-config/node"
-  }
+  npm run test
   ```
-  ```js
-  // .prettierrc
-  {
-    "singleQuote": true,
-    "trailingComma": "all"
-  }
-  ```
-
-
-3.Add the following script to the package.json
-  ```json
-    {
-      "scripts": {
-        "lint": "eslint ."
-      }
-    }
-  ```
-
-<b>Congratulations. You already set your mobile project!</b>
-
-You can read more about TS configuration with expo here: https://docs.expo.dev/guides/typescript/
-
-</details>
-
-> :bulb: You are now here → [part-1](../../tree/part-1)
-
-## Part 2: Add a lottery
-
-<details>
-  <summary>In this part we will implement the given UI:</summary> 
-
-  <img width="511" alt="ui" src="./assets/image1.png" />
-
-
-</details>
-
-1. Install react navigation: https://reactnavigation.org/docs/hello-react-navigation
-2. Create native stack navigator: https://reactnavigation.org/docs/hello-react-navigation
-3. Add two screens: `Home` and `AddLottery`
-4. Create `FAB` and `Form` components
-5. You can reuse and copy `useNewLottery` hook from web part
-6. Add form validation:
-  <details>
-    <summary>Form validation</summary>
-
-  <img width="511" alt="ui" src="./assets/image2.png" />
-
-
-  </details>
-
-
-Add lottery feature should have following things implemented:
-
-- FAB button to navigate to new screens
-- New “Add lottery screen” with add new lottery form
-- Forms should be validated (implement the same functionality as on web)
-- Loading state should be present when form is submitted
-- After successful submission we should be navigated back to Home Screen and Toast with a `'New lottery added successfully!'` message should be displayed
-
-
-
-> :bulb: You are now here → [part-2](../../tree/part-2)
-
-## Part 3: List lotteries
-
-Given the UI design implement List lotteries feature.
-
-<details>
-  <summary><b>Fetch and display lottery data</b></summary><br>
-
-<img width="511" alt="Screenshot 2023-07-17 at 14 46 14" src="./assets/image3.png">
-
-
 </details>
 
 <details>
-  <summary><b>Add text input to filter fetched lotteries</b></summary><br>
+  <summary><b>Step 4. Review and Refine</b></summary><br>
 
-<img width="511" alt="Screenshot 2023-07-17 at 14 47 16" src="./assets/image4.png">
+Review the test results and make sure the interactions between different parts of your app are working as expected. If any issues are detected, refine your code and tests accordingly.
+</details>
 
+## Part 3: Introduce single snapshot test
 
+<b>Step 1. Implement a snapshot test for the SearchInput component</b>
+<br/><br/>
+<b>Step 2. Run and generate the snapshot - preview the final result</b>
+<br/><br/>
+<b>Step 3. Try to modify the SearchInput component and run the test again without updating the snapshot</b>
+
+> 💡 - Remember about reverting your changes back!
+
+## Part 4: Implement two e2e flows with the usage of Maestro
+
+<details>
+  <summary><b>Step 1. Implement add lottery flow</b></summary><br>
+
+This task target to verify whether the functionality of adding lotteries work as expected, so in that flow, we have to enter the adding lottery form, input necessary information and check whether the item was successfully added as expected.
+
+> Hint: In order to press a button without text information add `testID` property and access them using `testID`
 </details>
 
 <details>
-  <summary><b>Handle no search result case</b></summary><br>
+  <summary><b>Step 2. Implement flow that verifies if settings work</b></summary><br>
 
-<img width="511" alt="Screenshot 2023-07-17 at 14 48 54" src="./assets/image5.png">
+In that specific flow, we expect to have a properly working settings tab and hide the add lottery button functionality. Within the test, we need to enter the settings screen, toggle the switch responsible for storing information about the availability of adding lottery functionality, and after that expect to not see the FAB component on the Lotteries Screen.
 
-
+> Hint: In order to press a button without text information add `testID` property and access them using `testID`
 </details>
 
-
-
-
-List lotteries feature:
-
-- Should display list off lotteries  ( you can copy and reuse `useLotteries` hook from the web part
-- Adding a new lottery should re-fetch the lotteries
-- Loading state should be present while fetching the lotteries
-- Should have text input to with a search icon
-- Typing in the input should filter the results
-- When there are no search results for a given filter, no search result information should be displayed
-
-  
-> :bulb: You are now here → [part-3](../../tree/part-3)
-
-## Part 4: Store register lottery data
-
-
-<details>
-  <summary><b>Make lotteries selectable and add `Register` button</b></summary><br>
-
-<img width="511" alt="Screenshot 2023-07-17 at 14 11 22" src="./assets/image6.png">
-
-</details>
-
-<details>
-  <summary><b>Add register modal with name input and validation:</b></summary><br>
-
-<img width="511" alt="Screenshot 2023-07-17 at 14 10 30" src="./assets/image7.png">
-
-
-</details>
-
-<details>
-  <summary>Registered lotteries:</summary>
-
-<img width="511" alt="Screenshot 2023-07-17 at 14 08 42" src="./assets/image8.png">
-
-
-</details>
-
-Registered lotteries feature:
-
-- Lotteries should be selectable by pressing on them
-- Register button should open a modal to register for selected lotteries
-- Register button should be disabled when no lotteries are selected
-- Register modal should close after successful submission and registered lottery IDs need to be added to AsyncStorage
-- Registered lotteries should be grayed-out and not be selectable
-
-  
-> :bulb: You are now here → [part-4](../../tree/part-4)
+> 💡 - Try to create one of the tests interactively with the usage of Maestro Studio
