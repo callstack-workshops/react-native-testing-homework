@@ -105,3 +105,47 @@ This task target to verify whether the functionality of adding lotteries work as
 
 
 > 💡 - You can create the test interactively with the usage of Maestro Studio
+
+## Maestro setup
+
+### 1. Install Maestro
+
+Follow the official installation guide:
+
+- [Maestro Quickstart](https://docs.maestro.dev/get-started/quickstart) Note: you can skip the first step if you already have an iOS Simulator or an Android Emulator installed.
+- [React Native support](https://docs.maestro.dev/platform-support/react-native)
+
+The simplest option is usually Maestro Studio from the official docs.
+
+### 2. Don't forget to start the backend
+
+```bash
+cd backend
+npm install
+npm run dev
+```
+
+### 3. Configure the mobile app API URLs
+
+Create `mobile/.env` and point it at the backend for the simulator/emulator you are using.
+
+Typical local values look like this:
+
+```dotenv
+API_URL_IOS=http://localhost:3000
+API_URL_ANDROID=http://10.0.2.2:3000
+```
+
+### 4. Start the Expo app
+
+In a second terminal:
+
+```bash
+cd mobile
+npm install
+npm start
+```
+
+### 5. Run the Maestro flow
+
+Start Maestro Studio and create/run your tests.
